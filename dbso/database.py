@@ -23,7 +23,7 @@ class Database(SO):
     @property
     def desc(self):
         """
-        获取连接信息
+        获取数据库结构
         :return: 连接信息
         """
         sql = f"SELECT * FROM information_schema.TABLES WHERE TABLE_SCHEMA = '{self._name}'"
@@ -49,19 +49,19 @@ class Database(SO):
         """
         self._execute(f"DROP TABLE [IF EXISTS] {name}")
 
-    def create(self, name: str, title: list, auto_increment: int = 0, engine: str = "", charset: str = ""):
+    def create(self, name: str, title: list, auto: int = 0, engine: str = "", charset: str = ""):
         """
         创建数据表
         :param name: 数据表名称
         :param title: 字段列表
         :param engine: 存储引擎
         :param charset: 默认字符集
-        :param auto_increment: 自动增长初始值
+        :param auto: 自动增长初始值
         :return: 数据表对象
         """
         sql = f"CREATE TABLE IF NOT EXISTS {self._name}.{name}({','.join([col.sql for col in title])})"
         sql += f"ENGINE={engine}" if engine else ""
-        sql += f" AUTO_INCREMENT={auto_increment}" if auto_increment else ""
+        sql += f" AUTO_INCREMENT={auto}" if auto else ""
         sql += f" DEFAULT CHARSET={charset}" if charset else ""
         self._execute(sql)
         return self[name]
