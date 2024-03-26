@@ -40,14 +40,14 @@ def cond(cols: list = None, check: str = "", offset: int = 0, step: int = 0, ord
          null: bool = False, group_col: str = "", having: str = "", addition: str = ""):
     """
     条件对象
-    :param cols: 字段名列表
+    :param cols: 数据列列表
     :param check: 约束
     :param offset: 偏移量
     :param step: 步数
-    :param order_col: 排序依赖列
-    :param asc: 升序
-    :param null: NULL置顶
-    :param group_col: 分组依赖列
+    :param order_col: 排序依赖列列名
+    :param asc: 是否升序
+    :param null: NULL是否置顶
+    :param group_col: 分组依赖列列名
     :param having: 分组约束
     :param addition: 附加SQL语句
     :return: 条件对象
