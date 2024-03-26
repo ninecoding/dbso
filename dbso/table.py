@@ -170,7 +170,7 @@ class Table(SO):
 
     def modify(self, col):
         """
-        修改字段
+        修改数据列
         :param col: 字段
         """
         sql = f"ALTER TABLE {self._name} MODIFY COLUMN {col.sql}"
@@ -178,7 +178,7 @@ class Table(SO):
 
     def drop(self, col_name: str):
         """
-        删除字段
+        删除数据列
         :param col_name: 字段名
         """
         sql = f"ALTER TABLE {self._name} DROP COLUMN {col_name}"
@@ -225,7 +225,7 @@ class Table(SO):
             sql = f"ALTER TABLE {self._name} CHANGE COLUMN {name} {new_name} {col_type}"
         self._execute(sql)
 
-    def create_index(self, name: str, col_dict: dict, unique=False):
+    def create_index(self, name: str, col_dict: dict, unique: bool = False):
         """
         创建索引
         :param name: 索引名称
