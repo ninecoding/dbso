@@ -19,9 +19,7 @@
  1. 支持其他如SQL Sever、Oracle、SQLite等数据库的兼容，实现跨数据库数据管理
  2. 逐步脱离依赖SQL独立为一个面向对象接口的非关系型数据库
  3. 扩充面向实际功能需要和数据计算的日期时间对象、条件判断对象和异常类
- 
 
-> [GitHub项目地址：https://github.com/ninecoding/dbso](https://github.com/ninecoding/dbso)
  ***
 
 # DBSO库安装
@@ -336,5 +334,4 @@ finally:
 ***
 文章作者：Nine\
 作者邮箱：ninecodespace@gmail.com\
-[GitHub项目地址：https://github.com/ninecoding/dbso](https://github.com/ninecoding/dbso)\
 [Python官方文档：https://docs.python.org/3/library/index.html](https://docs.python.org/3/library/index.html)
