@@ -5,7 +5,7 @@ from .database import Database
 
 
 class Connect(SO):
-    def __init__(self, host: str, port: int, username: str, password: str, charset: str = 'utf8'):
+    def __init__(self, host: str, username: str, password: str, port: int = 3306, charset: str = 'utf8'):
         self._host = host
         self._port = port
         self._username = username
@@ -40,7 +40,7 @@ class Connect(SO):
     @property
     def desc(self):
         """
-        获取连接信息
+            获取连接信息
         :return: 连接信息
         """
         sql = "SELECT * FROM information_schema.SCHEMATA"
@@ -126,7 +126,7 @@ class Connect(SO):
         self._cursor.close()
         self._conn.close()
 
-    def cmd(self, sql):
+    def cmd(self, sql: str):
         """
         执行命令并提交
         :param sql: SQL语句
@@ -138,12 +138,12 @@ class Connect(SO):
 
     def rollback(self):
         """
-        回滚至保存点
+        回滚
         """
         self._conn.rollback()
 
 
-def connect(host: str, port: int, username: str, password: str, charset: str = 'utf8'):
+def connect(host: str, username: str, password: str, port: int = 3306, charset: str = 'utf8'):
     """
     生成连接对象
     :param host: 主机名
